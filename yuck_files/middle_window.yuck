@@ -1,0 +1,70 @@
+(include "./yuck_files/utilities.yuck")
+(include "./yuck_files/polls.yuck")
+
+;###################################################################################
+; The window displayed in the middle on the top of the screen
+;###################################################################################
+(defwindow middle_window
+  :class "window"
+  :monitor 0
+  :geometry (geometry :x "0px"
+                      :y "1px"
+                      :width "200px"
+                      :height "21px"
+                      :anchor "center top")
+  :exclusive true
+  (middle))
+
+;###################################################################################
+; This widget is here to help structure the middle window.
+; There are 3 segments: -time
+;                       -battery
+;                       -date
+;###################################################################################
+(defwidget middle []
+  (overlay  :class "window"
+    (background_control :label "" :size "11111111111111")
+    (box
+      (time)
+      (battery)
+      (date))))
+
+
+;###################################################################################
+; Time
+;###################################################################################        
+(defwidget time []
+  (box  :space-evenly false
+    :halign "center"
+    :class "time"
+    (box :class "hour"
+    "${hour}  ")
+    (box :class "separator_time"
+      " ")
+    (box :class "minute"
+    "${minute}")))
+
+;###################################################################################
+; Battery
+;###################################################################################
+(defwidget battery []
+  (box  :class "battery"
+        :valign "center"
+        :halign "center"
+        :space-evenly false
+    (metric :value {EWW_BATTERY.BAT0.capacity} :thickness 3.5 :sign {EWW_BATTERY.BAT0.status == "Discharging" ? "": "󱐋"} :color {EWW_BATTERY.BAT0.status == "Discharging" ? "" : "rgb(211, 164, 94)"} :sign_color "")))
+
+
+;###################################################################################   
+; Date
+;###################################################################################
+(defwidget date []
+  (box  :space-evenly false
+    :halign "center"
+    :class "date"
+    (box :class "day"
+      "${day}  ")
+    (box :class "separator_date"
+      "󰸗 ")
+    (box :class "month"
+      "${month}")))

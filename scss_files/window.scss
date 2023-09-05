@@ -1,0 +1,13 @@
+//####################################################
+// Holds basic formating for windows
+//####################################################
+.window {
+    border-radius: 12;
+    border-width: 2px;
+    border-color: $border_color_window;
+    border-style: solid;
+
+    font-size: medium;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: italic;
+}

@@ -1,0 +1,42 @@
+(defwidget selector [start value class sign thickness]
+    (overlay  :class "metric"
+      (box :class "invisible" "123")
+      (box sign)
+      (overlay 
+        (circular-progress :class "metric_background"  
+        :value {value > 100 ? value - 100 : value}
+        :start-at {start > 100 ? start - 100 : start}
+        :thickness thickness))))
+
+
+;###################################################################################
+; The background control lets you set the size of the widget independent from the size of the text
+;###################################################################################
+(defwidget background_control [label size] 
+  (overlay  :class "background_control"
+    (box    :class "invisible" size)
+    (box    :class "background_control_label" label)))
+
+
+;###################################################################################
+; The metric displays a circular progress bar in the 'color' that is specified.
+;
+; value ∈ [0, 100]
+; thickness ∈ [0, ∞)
+;
+; In the middle of the circular progress bar is a 'sign' with 'sign_color' as color
+;###################################################################################
+
+(defwidget metric [value thickness sign color sign_color]
+  (overlay  :class "metric"
+            :halign "center"
+            :style {color == "" ? "" : "color: ${color}"}
+    (box :class "invisible" "123")
+    (overlay
+      (circular-progress :class "metric_background"
+      :value value
+      :start-at 75
+      :thickness thickness)
+      (box  :class "metric_sign"
+            :style {sign_color == "" ? "" : "color: ${sign_color}"}
+      "${sign}"))))

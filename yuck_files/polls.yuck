@@ -1,0 +1,34 @@
+(defpoll workspace  :interval "0.5s"
+  "cwsp=$(hyprctl activeworkspace | sed '/)/'q) && hyprctl workspaces | sed \"/$cwsp/q\" | grep -c \"workspace\"")
+
+(defpoll workspace_count  :interval "0.5s"
+  "hyprctl workspaces | grep -c \"workspace ID\"")
+
+(defpoll hour   :interval "10s"
+  "date +%H")
+
+(defpoll minute   :interval "2s"
+  "date +%M")
+
+(defpoll weekday  :interval "10000s"
+                  :initial "date +%a"
+  "date +%a")
+
+(defpoll day    :interval "10000s"
+                :initial "date +%e"
+  "date +%e")
+
+(defpoll month  :interval "100000s"
+                :initial "date +%m"
+  "date +%m")
+
+
+(defpoll wifi   :interval "5s"
+        :initial "nmcli dev wifi list | awk '/\\*/{if (NR!=1) {print $8}}'"
+  "nmcli dev wifi list | awk '/\\*/{if (NR!=1) {print $8}}'")
+
+(defpoll brightness :interval "1s"
+  "light -G")
+
+(defpoll volume :interval "1s"
+  "pamixer --get-volume ")
