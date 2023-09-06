@@ -1,14 +1,18 @@
 (include "./yuck_files/utilities.yuck")
 
 ;###################################################################################
-; The window displayed in the left on the top of the screen
+; This widget holds all widgets displayed on the top left of the screen
+; Widgets are to be made using the revealer widget to make them appear and disappear on demand.
+;
+; List of widgets:  - Workspace counter
+;                   - Config file directory of used programm
+;                   - list of notifications
+;
+;
 ;###################################################################################
 (defwidget left_widget []
-    (box :class "window"
-        :halign "start"
-        :widget "300px"
-        :hexpand true
-        :orientation "h"
+    (box    :class "invisible"
+            :halign "start"
         (selector_circle    :start-at 75
             :current 1
             :max 3
@@ -16,3 +20,8 @@
             :sign "a"
             :color ""
             :sign_color "")))
+
+
+;###################################################################################
+; Workspace counter via selector. Displays the current workspace.
+;###################################################################################

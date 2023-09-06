@@ -1,2 +1,15 @@
+(include "./yuck_files/utilities.yuck")
+
+;###################################################################################
+; This widget holds all widgets displayed on the top right of the screen.
+; Widgets are to be made using the revealer widget to make them appear and disappear on demand.
+;
+; List of widgets:  - General system resources info (CPU usage, CPU temperature, RAM usage)
+;                   - General system properties info (wifi, bluetooth, audio, brightness)
+;                   - Weahter
+;                   - Open programms with tooltips
+;
+;###################################################################################
+
 (defwidget right_widget []
     "ha")
