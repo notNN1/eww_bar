@@ -1,7 +1,12 @@
+$background_color_window: rgba(0, 0, 0, 0.3);
+$border_color_window: rgba(255, 255, 255, 0.08);
+
 //####################################################
 // Holds basic formating for windows
 //####################################################
 .window {
+    background-color: $background_color_window;
+
     border-radius: 12;
     border-width: 2px;
     border-color: $border_color_window;

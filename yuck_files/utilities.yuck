@@ -1,3 +1,15 @@
+;###################################################################################
+; The selector displays a metric with color 'color', that is divided into 'max' segments. 
+; The 'current' segment is lit up.
+;
+; start-at ∈ [0, 100]
+; current ∈ {1, ..., max}
+; max ∈ N \ {0}
+; thickness ∈ [0, ∞)
+;
+; In the middle of the metric is a 'sign' with 'sign_color' as color
+;###################################################################################
+
 (defwidget selector_circle [start-at current max thickness sign color sign_color]
   (metric :start-at {start-at + (100 / max) * (current - 1) > 100 ? start-at + (100 / max) * (current - 1) - 100 : start-at}
           :value {100 / max}
@@ -16,8 +28,9 @@
 
 
 ;###################################################################################
-; The metric displays a circular progress bar in the 'color' that is specified.
+; The metric displays a circular progress bar in the color 'color'.
 ;
+; start-at ∈ [0, 100]
 ; value ∈ [0, 100]
 ; thickness ∈ [0, ∞)
 ;

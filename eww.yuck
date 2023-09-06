@@ -1,5 +1,6 @@
 (include "./yuck_files/middle_widget.yuck")
-(include "./yuck_files/left_widget/left_widget.yuck")
+(include "./yuck_files/left_widget.yuck")
+(include "./yuck_files/right_widget.yuck")
 
 ;###################################################################################
 ; The window displayed on the top
@@ -12,5 +13,10 @@
                         :height "21px"
                         :anchor "center top")
     :exclusive true
-    (left_widget)
-    (middle))
+    (segments))
+
+(defwidget segments []
+    (centerbox
+        (left_widget)
+        (middle)
+        (right_widget)))

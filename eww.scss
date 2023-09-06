@@ -1,4 +1,12 @@
 @import './scss_files/middle_widget.scss';
 @import './scss_files/utilities.scss';
-@import './scss_files/window.scss';
-@import './scss_files/left_window/left_widget.scss';
+@import './scss_files/left_widget.scss';
+
+
+//####################################################
+// top window
+//####################################################
+
+.top_window {
+    background-color: transparent;
+}
