@@ -1,19 +1,4 @@
 (include "./yuck_files/utilities.yuck")
-(include "./yuck_files/polls.yuck")
-
-;###################################################################################
-; The window displayed in the middle on the top of the screen
-;###################################################################################
-(defwindow middle_window
-  :class "window"
-  :monitor 0
-  :geometry (geometry :x "0px"
-                      :y "1px"
-                      :width "200px"
-                      :height "21px"
-                      :anchor "center top")
-  :exclusive true
-  (middle))
 
 ;###################################################################################
 ; This widget is here to help structure the middle window.
@@ -22,12 +7,11 @@
 ;                       -date
 ;###################################################################################
 (defwidget middle []
-  (overlay  :class "window"
-    (background_control :label "" :size "11111111111111")
-    (box
+    (box  :class "window"
+          :halign "center"
       (time)
       (battery)
-      (date))))
+      (date)))
 
 
 ;###################################################################################
@@ -52,7 +36,7 @@
         :valign "center"
         :halign "center"
         :space-evenly false
-    (metric :value {EWW_BATTERY.BAT0.capacity} :thickness 3.5 :sign {EWW_BATTERY.BAT0.status == "Discharging" ? "": "󱐋"} :color {EWW_BATTERY.BAT0.status == "Discharging" ? "" : "rgb(211, 164, 94)"} :sign_color "")))
+    (metric :start-at 75 :value {EWW_BATTERY.BAT0.capacity} :thickness 3.5 :sign {EWW_BATTERY.BAT0.status == "Discharging" ? "": "󱐋"} :color {EWW_BATTERY.BAT0.status == "Discharging" ? "" : "rgb(211, 164, 94)"} :sign_color "")))
 
 
 ;###################################################################################   
@@ -68,3 +52,25 @@
       "󰸗 ")
     (box :class "month"
       "${month}")))
+
+;###################################################################################   
+; polls
+;###################################################################################
+
+(defpoll hour   :interval "10s"
+"date +%H")
+
+(defpoll minute   :interval "2s"
+"date +%M")
+
+(defpoll weekday  :interval "10000s"
+                :initial "date +%a"
+"date +%a")
+
+(defpoll day    :interval "10000s"
+              :initial "date +%e"
+"date +%e")
+
+(defpoll month  :interval "100000s"
+              :initial "date +%m"
+"date +%m")

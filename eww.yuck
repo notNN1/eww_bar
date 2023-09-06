@@ -1,2 +1,16 @@
-(include "./yuck_files/middle_window.yuck")
+(include "./yuck_files/middle_widget.yuck")
+(include "./yuck_files/left_widget/left_widget.yuck")
 
+;###################################################################################
+; The window displayed on the top
+;###################################################################################
+(defwindow top_window
+    :monitor 0
+    :geometry (geometry :x "10px"
+                        :y "1px"
+                        :width "1900"
+                        :height "21px"
+                        :anchor "center top")
+    :exclusive true
+    (left_widget)
+    (middle))
