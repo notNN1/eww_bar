@@ -11,7 +11,7 @@
 ;###################################################################################
 
 (defwidget selector_circle [start-at current max thickness sign color sign_color]
-  (metric :start-at {start-at + (100 / max) * (current - 1) > 100 ? start-at + (100 / max) * (current - 1) - 100 : start-at}
+  (metric :start-at {start-at + (100 / max) * (current - 1) > 100 ? start-at + (100 / max) * (current - 1) - 100 : start-at + (100 / max) * (current - 1)}
           :value {100 / max}
           :thickness thickness
           :sign sign

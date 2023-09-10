@@ -5,23 +5,44 @@
 ; Widgets are to be made using the revealer widget to make them appear and disappear on demand.
 ;
 ; List of widgets:  - Workspace counter
-;                   - Config file directory of used programm
-;                   - list of notifications
+;                   - Config file directory of used programm list of notifications
 ;
 ;
 ;###################################################################################
 (defwidget left_widget []
     (box    :class "invisible"
             :halign "start"
-        (selector_circle    :start-at 75
-            :current 1
-            :max 3
-            :thickness 5
-            :sign "a"
-            :color ""
-            :sign_color "")))
+        (workspace_counter)))
 
 
 ;###################################################################################
 ; Workspace counter via selector. Displays the current workspace.
 ;###################################################################################
+
+(defvar workspace_color "#00aaff")
+
+(defwidget workspace_counter []
+    (box    :class "window"
+        (overlay
+            (background_control :label ""   :size "111111111")
+            (box :style "color: ${workspace_color}"
+                "${workspace}"
+                (selector_circle    :start-at 75
+                    :current workspace
+                    :max workspace_count
+                    :thickness 3
+                    :sign ""
+                    :color ""
+                    :sign_color ""))
+            )))
+
+
+;###################################################################################
+; Polls
+;###################################################################################
+
+(defpoll workspace  :interval "0.5s"
+"cwsp=$(hyprctl activeworkspace | sed '/)/'q) && hyprctl workspaces | sed \"/$cwsp/q\" | grep -c \"workspace\"")
+
+(defpoll workspace_count  :interval "0.3s"
+"hyprctl workspaces | grep -c \"workspace ID\"")
