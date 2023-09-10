@@ -22,9 +22,9 @@
 
 (defvar ram_color "#aa00aa")
 
-(defvar cpu_usage "#cc0077")
+(defvar cpu_usage_color "#cc0077")
 
-(defvar temps "#ff0066")
+(defvar temps_color "#ff0066")
 
 (defwidget system_resources []
     (box    :class "window"
@@ -40,7 +40,7 @@
                             :sign "" 
                             :color "" 
                             :sign_color ""))
-                (box    :style "color: ${cpu_usage}; border-top-width: 0px; border-left-width: 0px; background-color: transparent"
+                (box    :style "color: ${cpu_usage_color}; border-top-width: 0px; border-left-width: 0px; background-color: transparent"
                         :class "window"
                     ""
                     (metric :start-at 75
@@ -50,7 +50,7 @@
                         :color "" 
                         :sign_color ""))
                 
-                (box    :style "color: ${temps}; border-top-width: 0px; border-left-width: 0px; background-color: transparent; border-right-width: 0px"
+                (box    :style "color: ${temps_color}; border-top-width: 0px; border-left-width: 0px; background-color: transparent; border-right-width: 0px"
                         :class "window"
                     ""
                     (metric :start-at 75
