@@ -14,4 +14,49 @@
 (defwidget right_widget []
     (box    :class "invisible"
             :halign "end"
-        (workspace_counter)))
+        (system_resources)))
+
+;###################################################################################
+; General system resources info
+;###################################################################################
+
+(defvar ram_color "#aa00aa")
+
+(defvar cpu_usage "#cc0077")
+
+(defvar temps "#ff0066")
+
+(defwidget system_resources []
+    (box    :class "window"
+        (overlay
+            (background_control :label ""   :size "111111111111111111111111111")
+            (box
+                (box    :style "color: ${ram_color}; border-top-width: 0px; border-left-width: 0px; background-color: transparent"
+                        :class "window"
+                    ""
+                    (metric :start-at 75
+                            :value 70
+                            :thickness 3 
+                            :sign "" 
+                            :color "" 
+                            :sign_color ""))
+                (box    :style "color: ${cpu_usage}; border-top-width: 0px; border-left-width: 0px; background-color: transparent"
+                        :class "window"
+                    ""
+                    (metric :start-at 75
+                        :value 70
+                        :thickness 3 
+                        :sign "" 
+                        :color "" 
+                        :sign_color ""))
+                
+                (box    :style "color: ${temps}; border-top-width: 0px; border-left-width: 0px; background-color: transparent; border-right-width: 0px"
+                        :class "window"
+                    ""
+                    (metric :start-at 75
+                        :value 70
+                        :thickness 3 
+                        :sign "" 
+                        :color "" 
+                        :sign_color ""))
+                ))))
