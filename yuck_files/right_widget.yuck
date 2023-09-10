@@ -12,4 +12,6 @@
 ;###################################################################################
 
 (defwidget right_widget []
-    "ha")
+    (box    :class "invisible"
+            :halign "end"
+        (workspace_counter)))
