@@ -31,20 +31,13 @@
         (overlay
             (background_control :label ""   :size "111111111111111111111111111")
             (box
-                (box    :style "color: ${ram_color}; border-top-width: 0px; border-left-width: 0px; background-color: transparent"
-                        :class "window"
-                    ""
-                    (metric :start-at 75
-                            :value 70
-                            :thickness 3 
-                            :sign "" 
-                            :color "" 
-                            :sign_color ""))
+                (left_box :text "" :tooltip "Used ram percentage: ${round(EWW_RAM.used_mem_perc, 0)}%" :value {EWW_RAM.used_mem_perc} :color {ram_color})
                 (box    :style "color: ${cpu_usage_color}; border-top-width: 0px; border-left-width: 0px; background-color: transparent"
                         :class "window"
+                        :tooltip "CPU avg: ${round(EWW_CPU.avg, 0)}%"
                     ""
                     (metric :start-at 75
-                        :value 70
+                        :value {EWW_CPU.avg}
                         :thickness 3 
                         :sign "" 
                         :color "" 
@@ -52,11 +45,34 @@
                 
                 (box    :style "color: ${temps_color}; border-top-width: 0px; border-left-width: 0px; background-color: transparent; border-right-width: 0px"
                         :class "window"
+                        :tooltip "CPU temperature: ${round(EWW_TEMPS.K10TEMP_TCTL, 0)}°C
+                        "
                     ""
                     (metric :start-at 75
-                        :value 70
+                        :value {EWW_TEMPS.K10TEMP_TCTL}
                         :thickness 3 
                         :sign "" 
                         :color "" 
                         :sign_color ""))
                 ))))
+
+
+
+(defwidget left_box [text tooltip value color]
+    (box    :style "color: ${color}; border-top-width: 0px; border-left-width: 0px; border-left-width: 0px ;background-color: transparent"
+                        :class "window"
+                        :tooltip "Used ram percentage: ${round(value, 0)}%"
+                    text
+                    (metric :start-at 75
+                            :value {EWW_RAM.used_mem_perc}
+                            :thickness 3 
+                            :sign "" 
+                            :color "" 
+                            :sign_color "")))
+
+;###################################################################################
+; General system properties info
+;###################################################################################
+
+
+
