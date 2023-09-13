@@ -64,11 +64,11 @@
 (defpoll minute   :interval "2s"
 "date +%M")
 
-(defpoll weekday  :interval "10000s"
+(defpoll weekday  :interval "60s"
                 :initial "date +%a"
 "date +%a")
 
-(defpoll day    :interval "10000s"
+(defpoll day    :interval "60s"
               :initial "date +%e"
 "date +%e")
 
