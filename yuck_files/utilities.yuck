@@ -50,3 +50,28 @@
       (box  :class "metric_sign"
             :style {sign_color == "" ? "" : "color: ${sign_color}"}
       "${sign}"))))
+
+
+
+;###################################################################################
+; The small_box displays a metric with value 'value' in the color 'color'.
+; The 'tooltip' is displayed on hover over the box.
+;
+; The 'extra_style' is used to make changes to the css, 
+; mainly to set the 'border-right-width: 0px' on the most right 'small_box' in a row
+;
+; value ∈ [0, 100]
+;###################################################################################
+
+(defwidget small_box [text tooltip value color extra_style]
+  (box
+      :class "small_box"    
+      :style "color: ${color}; ${extra_style}"
+      :tooltip tooltip
+      text
+      (metric :start-at 75
+              :value value
+              :thickness 3 
+              :sign "" 
+              :color "" 
+              :sign_color "")))

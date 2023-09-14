@@ -18,3 +18,17 @@
 .metric_sign {
     font-size: small;
 }
+
+//####################################################
+// small box
+//####################################################
+
+.small_box {
+    border-radius: 12;
+    border-bottom-width: 2px; 
+    border-right-width: 2px;
+    border-color: $border_color_window;
+    border-style: solid;
+
+    background-color: transparent;
+}
