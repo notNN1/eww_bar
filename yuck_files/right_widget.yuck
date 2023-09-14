@@ -56,7 +56,7 @@
     (box
         :class "small_box"    
         :style "color: ${color}; ${extra_style}"
-        :tooltip "Used ram percentage: ${round(value, 0)}%"
+        :tooltip tooltip
         text
         (metric :start-at 75
                 :value value

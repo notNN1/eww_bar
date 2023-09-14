@@ -8,9 +8,9 @@
 (defwindow top_window
     :monitor 0
     :geometry (geometry :x "10px"
-                        :y "1px"
+                        :y "4px"
                         :width "1900"
-                        :height "21px"
+                        :height "23px"
                         :anchor "center top")
     :exclusive true
     (segments))
