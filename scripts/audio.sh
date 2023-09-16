@@ -9,8 +9,10 @@ icon() {
         icon="󰕾"
     elif [ "$vol" -gt "33" ]; then
         icon=""
-    else
+    elif [ "$vol" -gt "0" ]; then
         icon=""
+    else
+        icon="󰝟"
     fi
 
     echo "$icon"
