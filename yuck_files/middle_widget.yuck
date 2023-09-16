@@ -79,6 +79,6 @@
 (defpoll battery_perc :interval "60s"
   "bash ./scripts/battery.sh percent")
 
-(defpoll battery_color :interval "60s"
+(defpoll battery_color :interval "2s"
               :initial "bash ./scripts/battery.sh color"
 "bash ./scripts/battery.sh color")

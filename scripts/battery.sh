@@ -5,7 +5,7 @@ per="$(cat "$bat/capacity")"
 
 color() {
 
-[ $(cat "$bat/status") = Charging ] && echo "" && exit
+[ $(cat "$bat/status") = Charging ] && echo "#f4ff56" && exit
 
 if [ "$per" -gt "66" ]; then
 	color="#8adf62" 
@@ -13,12 +13,14 @@ elif [ "$per" -gt "33" ]; then
 	color="#e6723c"
 else 
 	color="#fc2525"
-    notify-send -u critical "Battery Low" "Connect Charger"
 fi
 echo "$color"
 }
 
 percent() {
+	if ["$per" -st "33" ]; then
+		notify-send -u critical "Battery Low" "Connect Charger"
+	fi
 	echo $per
 }
 
