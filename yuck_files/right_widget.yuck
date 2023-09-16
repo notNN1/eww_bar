@@ -64,7 +64,21 @@
     (box    :class "window"
         (overlay
             (background_control :label "" :size "111111")
-            ""
+            (box    
+                (internet)
+                (volume))
             )))
 
+(defwidget internet []
+    (box
+        "${wifi_icon}"))
 
+(defwidget audio []
+    (box
+        "${audio_icon}"))
+
+(defpoll wifi_icon  :interval "2s"
+    "bash ./scripts/internet.sh icon")
+
+(defpoll audio_icon    :interval "0.5s"
+    "bash ./scripts/audio.sh icon")
