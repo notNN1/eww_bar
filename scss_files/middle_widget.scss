@@ -3,8 +3,6 @@
 //####################################################
 // variables
 //####################################################
-$battery_color: #df6262;
-
 $month_color: #949494;
 $separator_date_color: rgba(156, 156, 156, 0.5);
 $day_color: rgb(211, 164, 94);
@@ -55,6 +53,5 @@ $minute_color: $month_color;
 //####################################################
 
 .battery {
-    color: $battery_color;
     font-size: large;
 }

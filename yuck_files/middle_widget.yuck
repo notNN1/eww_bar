@@ -37,7 +37,7 @@
         :valign "center"
         :halign "center"
         :space-evenly false
-    (metric :start-at 75 :value {EWW_BATTERY.BAT0.capacity} :thickness 3.5 :sign {EWW_BATTERY.BAT0.status == "Discharging" ? "": "󱐋"} :color {EWW_BATTERY.BAT0.status == "Discharging" ? "" : "rgb(211, 164, 94)"} :sign_color "")))
+    (metric :start-at 75 :value {battery_perc} :thickness 3.5 :sign {EWW_BATTERY.BAT0.status == "Discharging" ? "◦": "󱐋"} :color {battery_color} :sign_color "")))
 
 
 ;###################################################################################   
@@ -72,6 +72,13 @@
               :initial "date +%e"
 "date +%e")
 
-(defpoll month  :interval "100000s"
+(defpoll month  :interval "60s"
               :initial "date +%m"
 "date +%m")
+
+(defpoll battery_perc :interval "60s"
+  "bash ./scripts/battery.sh percent")
+
+(defpoll battery_color :interval "60s"
+              :initial "bash ./scripts/battery.sh color"
+"bash ./scripts/battery.sh color")
