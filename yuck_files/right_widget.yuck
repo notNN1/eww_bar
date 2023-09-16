@@ -12,8 +12,8 @@
 ;###################################################################################
 
 (defwidget right_widget []
-    (box    :class "invisible"
-            :halign "end"
+    (box    :halign "end"
+        (system_properties)
         (system_resources)))
 
 ;###################################################################################
@@ -54,5 +54,17 @@
 ; General system properties info
 ;###################################################################################
 
+(defvar connection_color "#aa00aa")
+
+(defvar volume_color "#cc0077")
+
+(defvar brightness_color "#ff0066")
+
+(defwidget system_properties []
+    (box    :class "window"
+        (overlay
+            (background_control :label "" :size "111111")
+            ""
+            )))
 
 

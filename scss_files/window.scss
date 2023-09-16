@@ -3,7 +3,7 @@
 //####################################################
 
 $background_color_window: rgba(0, 0, 0);
-$border_color_window: rgba(255, 255, 255, 0.08);
+$border_color_window: rgba(49, 49, 49, 0.897);
 
 //####################################################
 // Holds basic formating for windows
@@ -15,6 +15,9 @@ $border_color_window: rgba(255, 255, 255, 0.08);
     border-width: 2px;
     border-color: $border_color_window;
     border-style: solid;
+
+    margin-right: 5px;
+    margin-left: 5px;
 
     font-size: medium;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
