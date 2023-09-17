@@ -13,8 +13,10 @@
 
 (defwidget right_widget []
     (box    :halign "end"
+            :space-evenly false
         (system_properties)
         (system_resources)))
+
 
 ;###################################################################################
 ; General system resources info
@@ -29,7 +31,7 @@
 (defwidget system_resources []
     (box    :class "window"
         (overlay
-            (background_control :label ""   :size "111111111111111111111111111")
+            (background_control :label ""   :size "1111111111111111111111111111")
             (box
                 (small_box  :text "" 
                             :tooltip "Used ram percentage: ${round(EWW_RAM.used_mem_perc, 0)}%" 
@@ -54,31 +56,43 @@
 ; General system properties info
 ;###################################################################################
 
-(defvar connection_color "#aa00aa")
+(defvar connection_color "rgb(120, 217, 255)")
 
-(defvar volume_color "#cc0077")
+(defvar volume_color "rgb(120, 255, 199)")
 
-(defvar brightness_color "#ff0066")
+(defvar brightness_color "rgb(255, 208, 120)")
 
 (defwidget system_properties []
     (box    :class "window"
         (overlay
-            (background_control :label "" :size "111111")
-            (box    
+            (background_control :label "" :size "111111111111111")
+            (box
                 (internet)
-                (volume))
-            )))
+                (audio)
+                (brightness)))))
 
 (defwidget internet []
-    (box
+    (box    :style "color: ${connection_color}"
         "${wifi_icon}"))
 
 (defwidget audio []
-    (box
+    (box    :style "color: ${volume_color}"
         "${audio_icon}"))
 
-(defpoll wifi_icon  :interval "2s"
+(defwidget brightness []
+    (box    :style "color: ${brightness_color}"
+        "${brightness_icon}"))
+
+
+;###################################################################################
+; Polls
+;###################################################################################
+
+(defpoll wifi_icon  :interval "3s"
     "bash ./scripts/internet.sh icon")
 
-(defpoll audio_icon    :interval "0.5s"
+(defpoll audio_icon    :interval "1s"
     "bash ./scripts/audio.sh icon")
+
+(defpoll brightness_icon    :interval "1s"
+    "bash ./scripts/brightness.sh icon")

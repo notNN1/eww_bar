@@ -1,6 +1,3 @@
 
 (defpoll brightness :interval "1s"
   "light -G")
-
-(defpoll volume :interval "1s"
-  "pamixer --get-volume ")

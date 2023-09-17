@@ -44,5 +44,5 @@
 (defpoll workspace  :interval "1s"
 "cwsp=$(hyprctl activeworkspace | sed '/)/'q) && hyprctl workspaces | sed \"/$cwsp/q\" | grep -c \"workspace\"")
 
-(defpoll workspace_count  :interval "1s"
+(defpoll workspace_count  :interval "2s"
 "hyprctl workspaces | grep -c \"workspace ID\"")
