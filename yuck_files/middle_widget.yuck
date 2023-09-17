@@ -37,7 +37,7 @@
         :valign "center"
         :halign "center"
         :space-evenly false
-    (metric :start-at 75 :value {battery_perc} :thickness 3.5 :sign {EWW_BATTERY.BAT0.status == "Discharging" ? "◦": "󱐋"} :color {battery_color} :sign_color "")))
+    (metric :start-at 75 :value {battery_perc} :thickness 3.5 :sign {EWW_BATTERY.BAT0.status == "Discharging" ? "󰧞": "󱐋"} :color {battery_color} :sign_color "")))
 
 
 ;###################################################################################   
