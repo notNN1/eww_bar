@@ -18,7 +18,7 @@ echo "$color"
 }
 
 percent() {
-	if ["$per" -st "33" ]; then
+	if ["$per" -lt "33" ]; then
 		notify-send -u critical "Battery Low" "Connect Charger"
 	fi
 	echo $per
