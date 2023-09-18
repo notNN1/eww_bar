@@ -94,5 +94,5 @@
 (defpoll audio_icon    :interval "1s"
     "bash ./scripts/audio.sh icon")
 
-(defpoll brightness_icon    :interval "1s"
+(deflisten brightness_icon
     "bash ./scripts/brightness.sh icon")
