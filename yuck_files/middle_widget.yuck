@@ -8,7 +8,7 @@
 ;###################################################################################
 (defwidget middle []
   (overlay
-    (background_control :size "111111111111111111111111111" :label "")
+    (background_control :size "1111111111111111111111111111" :label "")
     (box  :class "window"
       (time)
       (battery)
