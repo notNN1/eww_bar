@@ -7,9 +7,9 @@ color() {
 
 [ $(cat "$bat/status") = Charging ] && echo "#f4ff56" && exit
 
-if [ "$per" -gt "66" ]; then
+if [ "$per" -gt "50" ]; then
 	color="#8adf62" 
-elif [ "$per" -gt "33" ]; then
+elif [ "$per" -gt "25" ]; then
 	color="#e6723c"
 else 
 	color="#fc2525"
